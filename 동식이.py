@@ -2,9 +2,9 @@ import discord
 import ds
 
 intents = discord.Intents.default()
-bot = discord.Client(intents=intents)
+client = discord.Client(intents=intents)
 
-@bot.event
+@client.event
 async def on_ready():
     print('login')
     print(client.user.id)
@@ -12,7 +12,7 @@ async def on_ready():
     game = discord.Game("동식이다냥")
     await client.change_presence(status=discord.Status.online, activity=game)
 
-@bot.event
+@client.event
 async def on_message(message):
     if message.content.startswith("동식아 들어와"):
         await message.channel.send("집에 들어간다냥")
@@ -34,4 +34,4 @@ async def on_message(message):
         await message.channel.send("기분 좋다냥")
 
 access_token = os.environ["BOT_TOKEN"]
-bot.run(access_token)
+client.run(access_token)
