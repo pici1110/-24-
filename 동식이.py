@@ -1,4 +1,5 @@
 import discord
+import ds
 
 intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
@@ -32,4 +33,5 @@ async def on_message(message):
     if message.content.startswith("동식아 쓰담쓰담"):
         await message.channel.send("기분 좋다냥")
 
-bot.run('ODg4MDgwMzQyNjEzOTAxMzUy.YUNfRQ.ZJb5HTtMzjRE6g4TyzuxWef7uew')
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
